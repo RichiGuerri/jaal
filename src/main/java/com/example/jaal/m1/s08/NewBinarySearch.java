@@ -18,6 +18,19 @@ public class NewBinarySearch {
         }
         return -1;
     }
+
+    public static boolean recursive(int[] arr, int start, int end, int target){
+        int index = start + ((end - start)/2);
+        if(start >= end) return false;
+        else if(arr[index] == target) return true;
+        else if(arr[index] > target){
+            end = index;
+            return recursive(arr, start, end, target);
+        } else {
+            start = index;
+            return recursive(arr, start, end, target);
+        }
+    }
     
     public static void main(String[] args) {
         int[] array = { -36, -24, -14, 0, 52, 61, 77, 84, 98, 102 };
